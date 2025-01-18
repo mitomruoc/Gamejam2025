@@ -2,10 +2,12 @@
 
 public class Bubble : MonoBehaviour
 {
-    public float maxScale = 2f;  // Kích thước tối đa của quả bóng
-    public float growthRate = 0.1f;  // Tốc độ tăng kích thước
+    public float maxScale = 10f;  // Kích thước tối đa của quả bóng
+    public float growthRate = 0.01f;  // Tốc độ tăng kích thước
     private float initialScale;  // Kích thước ban đầu
     private bool isGrowing = false;  // Kiểm tra xem có đang phóng to không
+    private bool isShrinking = false;
+    public float minScale = 0.059f;
 
     void Start()
     {
@@ -14,27 +16,49 @@ public class Bubble : MonoBehaviour
 
     void Update()
     {
+        // Phóng to khi đang giữ chuột trái
         if (isGrowing && transform.localScale.x < maxScale)
         {
-            // Tăng kích thước bóng
             transform.localScale += Vector3.one * growthRate * Time.deltaTime;
         }
-        else if (!isGrowing && transform.localScale.x > initialScale)
+        // Thu nhỏ khi đang giữ chuột phải
+        else if (isShrinking && transform.localScale.x > 0)
         {
-            // Thu nhỏ bóng về kích thước ban đầu
             transform.localScale -= Vector3.one * growthRate * Time.deltaTime;
         }
     }
 
-    void OnMouseDown()
+    void OnMouseOver()
     {
-        isGrowing = true;  // Bắt đầu phóng to khi nhấn chuột
+        // Nhấn giữ chuột trái để phóng to
+        if (Input.GetMouseButton(0))
+        {
+            isGrowing = true;
+            isShrinking = false;
+        }
+        // Nhấn giữ chuột phải để thu nhỏ
+        else if (Input.GetMouseButton(1))
+        {
+            isGrowing = false;
+            isShrinking = true;
+        }
+        else if (Input.GetMouseButton(2))
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            isGrowing = false;
+            isShrinking = false;
+        }
     }
 
-    void OnMouseUp()
-    {
-        isGrowing = false;  // Ngừng phóng to khi thả chuột
-    }
+    //void OnMouseExit()
+    //{
+    //    // Ngừng phóng to/thu nhỏ khi chuột không còn ở trên bóng
+    //    isGrowing = false;
+    //    isShrinking = false;
+    //}
 
     public float GetElasticForce()
     {

@@ -11,9 +11,12 @@ public class Spawn : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0)) // Click trái để tạo bóng
         {
-            if (currentBallCount < maxBalls)
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            // Kiểm tra xem chuột có click vào một quả bóng hay không
+            RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
+            if (hit.collider == null && currentBallCount < maxBalls) // Nếu không click vào bóng
             {
-                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 GameObject newBall = Instantiate(ballPrefab, mousePosition, Quaternion.identity);
                 currentBallCount++;
             }
