@@ -2,9 +2,24 @@
 
 public class Spawn : MonoBehaviour
 {
+
     public GameObject ballPrefab; // Prefab quả bóng
-    public int maxBalls = 3;      // Số lượng bóng tối đa
-    private int currentBallCount = 0;
+    public int maxBalls;      // Số lượng bóng tối đa
+    public static Spawn Instance { get; private set; }
+
+    public int currentBallCount { get; set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
     private GameObject selectedBall = null;
     public Bubble bubble;
 

@@ -2312,7 +2312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 3701371774718861777, guid: 9c8593c24a315194dbb027aa099a2968, type: 3}
-  maxBalls: 100
+  maxBalls: 2
   bubble: {fileID: 3585817982828190302, guid: 9c8593c24a315194dbb027aa099a2968, type: 3}
 --- !u!1 &1586711389
 GameObject:
