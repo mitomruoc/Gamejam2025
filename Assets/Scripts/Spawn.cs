@@ -6,6 +6,7 @@ public class Spawn : MonoBehaviour
     public int maxBalls = 3;      // Số lượng bóng tối đa
     private int currentBallCount = 0;
     private GameObject selectedBall = null;
+    public Bubble bubble;
 
     void Update()
     {
@@ -19,6 +20,7 @@ public class Spawn : MonoBehaviour
             {
                 GameObject newBall = Instantiate(ballPrefab, mousePosition, Quaternion.identity);
                 currentBallCount++;
+               
             }
         }
 

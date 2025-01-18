@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5803847649077587271}
   - component: {fileID: 152521230321630091}
   - component: {fileID: 3585817982828190302}
+  - component: {fileID: -1332896421417031234}
   m_Layer: 0
   m_Name: Bubble
   m_TagString: Bubble
@@ -163,3 +164,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxScale: 2
   growthRate: 0.1
+  isGrowing: 1
+  isShrinking: 0
+  minScale: 0.059
+  dragg: {fileID: -1332896421417031234}
+--- !u!114 &-1332896421417031234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3701371774718861777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 552740832e4b0854e8c1c764bea4a6e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDragging: 0
+  bubble: {fileID: 3585817982828190302}
+  dragSpeed: 10

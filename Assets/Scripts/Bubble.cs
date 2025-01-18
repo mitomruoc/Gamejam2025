@@ -5,9 +5,10 @@ public class Bubble : MonoBehaviour
     public float maxScale = 10f;  // Kích thước tối đa của quả bóng
     public float growthRate = 0.01f;  // Tốc độ tăng kích thước
     private float initialScale;  // Kích thước ban đầu
-    private bool isGrowing = false;  // Kiểm tra xem có đang phóng to không
-    private bool isShrinking = false;
+    public bool isGrowing = false;  // Kiểm tra xem có đang phóng to không
+    public bool isShrinking = false;
     public float minScale = 0.059f;
+    public DraggableBouncyObject dragg;
 
     void Start()
     {
@@ -33,8 +34,17 @@ public class Bubble : MonoBehaviour
         // Nhấn giữ chuột trái để phóng to
         if (Input.GetMouseButton(0))
         {
-            isGrowing = true;
-            isShrinking = false;
+            if (dragg.isMoving == false)
+            {
+                isGrowing = true;
+                isShrinking = false;
+            }
+            else
+            {
+                isGrowing = false;
+                isShrinking = false;
+            }
+            
         }
         // Nhấn giữ chuột phải để thu nhỏ
         else if (Input.GetMouseButton(1))

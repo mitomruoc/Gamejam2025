@@ -1803,6 +1803,7 @@ GameObject:
   - component: {fileID: 1244621386}
   - component: {fileID: 1244621388}
   - component: {fileID: 1244621387}
+  - component: {fileID: 1244621389}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1952,6 +1953,23 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.83, y: 1.0801396}
   m_Direction: 0
+--- !u!114 &1244621389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244621383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 552740832e4b0854e8c1c764bea4a6e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDragging: 0
+  bubble: {fileID: 3585817982828190302, guid: 9c8593c24a315194dbb027aa099a2968, type: 3}
+  dragSpeed: 10
+  isMoving: 0
+  velocityThreshold: 0.1
 --- !u!1 &1258578497
 GameObject:
   m_ObjectHideFlags: 0
@@ -2811,7 +2829,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 3701371774718861777, guid: 9c8593c24a315194dbb027aa099a2968, type: 3}
-  maxBalls: 2
+  maxBalls: 100
+  bubble: {fileID: 3585817982828190302, guid: 9c8593c24a315194dbb027aa099a2968, type: 3}
 --- !u!1 &2060184961
 GameObject:
   m_ObjectHideFlags: 0
