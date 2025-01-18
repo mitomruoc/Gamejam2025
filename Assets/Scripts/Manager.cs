@@ -17,10 +17,6 @@ public class Manager : MonoBehaviour
         initPosition = Player.transform.position;
         initRotation = Player.transform.rotation;
     }
-    public void loadScene()
-    {
-        SceneManager.LoadScene("GamePlay");
-    }
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
